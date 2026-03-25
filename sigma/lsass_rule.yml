@@ -1,0 +1,24 @@
+title: Suspicious LSASS Access by Unknown Process
+description: Detects unknown or untrusted processes attempting to access LSASS with high privileges, which may indicate credential dumping activity.
+logsource: 
+  category: process_access
+detection:
+  selection_lsass:
+    TargetImage: lsass.exe
+  selection_source:
+    SourceImage: 
+      - unknown.exe
+      - evil.exe
+  selection_access:
+    GrantedAccess: high
+  selection_memory:
+    CallTrace:
+      - WriteVirtualMemory
+      - NtWriteVirtualMemory
+  selection_memory_read:
+    CallTrace: ReadProcessMemory
+  condition: selection_lsass and selection_access and selection_source and selection_memory
+level: high
+falsepositives:
+  - Legitimate security tools accessing LSASS
+  - System processes performing authentication
