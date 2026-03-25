@@ -1,0 +1,25 @@
+[
+  {
+    "EventType": "ProcessAccess",
+    "SourceImage": "evil.exe",
+    "TargetImage": "explorer.exe",
+    "GrantedAccess": "0x1FFFFF"
+  },
+  {
+    "EventType": "MemoryWrite",
+    "SourceImage": "evil.exe",
+    "TargetImage": "explorer.exe",
+    "CallTrace": "NtWriteVirtualMemory"
+  },
+  {
+    "EventType": "ProcessCreate",
+    "ParentImage": "explorer.exe",
+    "Image": "cmd.exe"
+  },
+  {
+  "SourceImage": "unknown.exe",
+  "TargetImage": "lsass.exe",
+  "GrantedAccess": "0x1fffff",
+  "CallTrace": "NtWriteVirtualMemory"
+}
+]
