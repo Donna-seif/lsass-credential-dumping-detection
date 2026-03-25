@@ -28,3 +28,9 @@ The detection accounts for attacker techniques such as:
 - Using legitimate processes
 - Operating with lower privileges
 - Using read-based credential access instead of memory writes
+
+## 🚀 Future Improvements
+
+- Add detection for PowerShell-based attacks
+- Improve detection with process lineage analysis
+- Expand to additional MITRE ATT&CK techniques
